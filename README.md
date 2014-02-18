@@ -14,7 +14,7 @@ $ npm install grunt-closurefx-builder
 
 Load the task by adding the following line to your `grunt.js` gruntfile:
 ```javascript
-grunt.loadNpmTasks('grunt-closure-compiler');
+grunt.loadNpmTasks('grunt-closurefx-builder');
 ```
 
 ### Use
