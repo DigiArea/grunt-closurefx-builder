@@ -1,7 +1,7 @@
 Grunt plugin for Closure FX Builder
 ===================================
 
-Grunt plugin for Closure FX Builder is created to effectively use [https://github.com/DigiArea/closurefx-builder Closure FX Builder] in your build tasks.
+Grunt plugin for Closure FX Builder is created to effectively use [Closure FX Builder](https://github.com/DigiArea/closurefx-builder) in your build tasks.
 
 ### Install
 
