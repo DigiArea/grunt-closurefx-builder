@@ -18,7 +18,7 @@ grunt.loadNpmTasks('grunt-closurefx-builder');
 ```
 
 ### Use
-Then you can minify JavaScript calling:
+Run Closure Build Configuration calling:
 ```javascript
 grunt.initConfig({
   'closurefx-builder': {
