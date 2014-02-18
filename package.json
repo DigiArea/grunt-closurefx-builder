@@ -1,0 +1,48 @@
+{
+  "name": "grunt-closurefx-builder",
+  "description": "A Grunt task for Closure FX Builder.",
+  "version": "1.0.0",
+  "homepage": "https://github.com/DigiArea/grunt-closurefx-builder",
+  "author": {
+    "name": "DigiArea, Inc.",
+    "email": "info@digi-area.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/DigiArea/grunt-closurefx-builder.git"
+  },
+  "bugs": {
+    "url": "https://github.com/DigiArea/grunt-closurefx-builder/issues"
+  },
+  "licenses": [
+    {
+      "type": "Apache v2.0",
+      "url": "https://github.com/DigiArea/grunt-closurefx-builder/blob/master/LICENSE"
+    }
+  ],
+  "main": "grunt.js",
+  "bin": {
+    "grunt-closurefx-builder": "bin/grunt-closurefx-builder"
+  },
+  "engines": {
+    "node": ">=0.6.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "dependencies": {
+    "grunt": "~0.4.0"
+  },
+  "keywords": [
+    "Closure Builder",
+    "Closure Compiler",
+    "Closure Templates",
+    "Closure Stylesheets",
+    "Soy Templates",
+    "Minification",
+    "Build",
+    "Closure Tools",
+    "Performance",
+    "gruntplugin"
+  ]
+}

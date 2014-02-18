@@ -25,7 +25,6 @@ module.exports = function(grunt) {
 
     var closure = '',
         builder = '',
-        reportFile = '',
         data = this.data,
         done = this.async();
 
@@ -48,102 +47,71 @@ module.exports = function(grunt) {
 
     data.cwd = data.cwd || './';
 
-    data.closure = grunt.file.expand({cwd: data.cwd}, data.closure);
-
-    // Sanitize options passed.
-    if (!data.closure.length) {
+   // Sanitize options passed.
+    if (!data.closure || !data.closure.length) {
       // This task requires a minima an input file.
       grunt.warn('Missing closure property.');
       return false;
     }
 
+    //data.closure = grunt.file.expand({cwd: data.cwd}, data.closure);
+    if (!grunt.file.isPathAbsolute(data.closure)) {
+        data.closure = path.resolve("./") + "/" + data.closure;
+    }
+
+if(data.log){
+
+    if (!grunt.file.isPathAbsolute(data.log)) {
+        data.log = path.resolve("./") + "/" + data.log;
+    }
+}
+
     // Build command line.
     command += ' -closure "' + data.closure + '"';
-
-    //if (data.jsOutputFile) {
-    //  if (!grunt.file.isPathAbsolute(data.jsOutputFile)) {
-    //    data.jsOutputFile = path.resolve('./') + '/' + data.jsOutputFile;
-    //  }
-    //  command += ' --js_output_file "' + data.jsOutputFile + '"';
-    //  reportFile = data.reportFile || data.jsOutputFile + '.report.txt';
-    //}
-
-    //if (data.externs) {
-    //  data.externs = grunt.file.expand(data.externs);
-    //  command += ' --externs ' + data.externs.join(' --externs ');
-//
-    //  if (!data.externs.length) {
-    //    delete data.externs;
-    //  }
-    //}
-
-    //if (data.options.externs) {
-    //  data.options.externs = grunt.file.expand(data.options.externs);
-//
-    //  if (!data.options.externs.length) {
-    //    delete data.options.externs;
-    //  }
-    //}
-
-    //for (var directive in data.options) {
-    //  if (Array.isArray(data.options[directive])) {
-    //    command += ' --' + directive + ' ' + data.options[directive].join(' --' + directive + ' ');
-    //  } else if (data.options[directive] === undefined || data.options[directive] === null) {
-    //    command += ' --' + directive;
-    //  } else {
-    //    command += ' --' + directive + ' "' + String(data.options[directive]) + '"';
-    //  }
-    //}
 
     // because closure compiler does not create dirs.
     //grunt.file.write(data.jsOutputFile, '');
 
-    // Minify WebGraph class.
     exec(command, function(err, stdout, stderr) {
       if (err) {
         grunt.warn(err);
         done(false);
       }
 
+if(data.log){
+fs.writeFile(data.log, '', function(){})
+}
+
       if (stdout) {
-        grunt.log.writeln(stdout);
+if(data.log){
+           // save info to file
+            fs.appendFile(data.log, stdout, function(err) {
+              if (err) {
+                grunt.warn(err);
+              }
+              grunt.log.writeln('Information and warnings are saved in ' + data.log + '.');
+            });
+}else{
+ grunt.log.writeln(stdout);
+}
+       
       }
 
-      // If OK, calculate gzipped file size.
-      //if (reportFile.length) {
-      //  var min = fs.readFileSync(data.jsOutputFile, 'utf8');
-      //  min_info(min, function(err) {
-      //    if (err) {
-      //      grunt.warn(err);
-      //      done(false);
-      //    }
-//
-      //    if (data.noreport) {
-       //     done();
-       //   } else {
-       //     // Write compile report to a file.
-       //     fs.writeFile(reportFile, stderr, function(err) {
-       //       if (err) {
-       //         grunt.warn(err);
-       //         done(false);
-       //       }
-//
-       //       grunt.log.writeln('A report is saved in ' + reportFile + '.');
-      //        done();
-      //      });
-      //    }
-//
-      //  });
-      //} else {
-      //  if (data.report) {
-      //    grunt.log.error(stderr);
-      //  }
-      //  done();
-      //}
-
         if (stderr) {
+if(data.log){
+           // save errors to file
+            fs.appendFile(data.log, stderr, function(err) {
+              if (err) {
+                grunt.warn(err);
+              }
+              grunt.log.writeln('Errors are saved in ' + data.log + '.');
+            });
+}else{
           grunt.log.error(stderr);
+done(false);
+}
         }
+
         done();
 
     });
