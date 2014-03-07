@@ -3,6 +3,8 @@ Grunt plugin for Closure FX Builder
 
 Grunt plugin for Closure FX Builder is created to use [Closure FX Builder](https://github.com/DigiArea/closurefx-builder) and [Closure Compiler](https://developers.google.com/closure/compiler/) in your build tasks.
 
+[![NPM](https://nodei.co/npm/grunt-closurefx-builder.png?compact=true)](https://nodei.co/npm/grunt-closurefx-builder/)
+
 ### Prepare
 
 To use the plugin, you need to [download the latest build of Closure FX Builder](https://github.com/DigiArea/closurefx-builder/releases). The builder is distributed as a simple zip archive. To install the builder, just download and unzip the archive.
