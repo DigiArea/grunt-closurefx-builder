@@ -9,19 +9,19 @@ To use the plugin, you need to [download the latest build of Closure FX Builder]
  
  - [Download Closure FX Builder](https://github.com/DigiArea/closurefx-builder/releases)
  - [How to install Closure FX Builder?](https://github.com/DigiArea/closurefx-builder#installation-and-running)
- - How to use Closure FX Builder?
+ - [How to use Closure FX Builder?](https://github.com/DigiArea/closurefx-builder#usage)
 
 
 ### Install
 
-Use the following command to install the plugin:
+From the same directory as your project's Gruntfile and package.json, install the plugin using the following command:
 ```bash
 $ npm install grunt-closurefx-builder
 ```
 
 ### Load
 
-Load the task by adding the following line to your `grunt.js` gruntfile:
+Load the task by adding the following line to your project's Gruntfile:
 ```javascript
 grunt.loadNpmTasks('grunt-closurefx-builder');
 ```
