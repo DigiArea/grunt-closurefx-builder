@@ -3,6 +3,8 @@ Grunt plugin for Closure FX Builder
 
 Grunt plugin for Closure FX Builder is created to use [Closure FX Builder](https://github.com/DigiArea/closurefx-builder) and [Closure Compiler](https://developers.google.com/closure/compiler/) in your build tasks.
 
+[![NPM](https://nodei.co/npm/grunt-closurefx-builder.png?compact=true)](https://nodei.co/npm/grunt-closurefx-builder/)
+
 ### Prepare
 
 To use the plugin, you need to [download the latest build of Closure FX Builder](https://github.com/DigiArea/closurefx-builder/releases). The builder is distributed as a simple zip archive. To install the builder, just download and unzip the archive.
@@ -42,15 +44,18 @@ grunt.initConfig({
 
 ### Options
 
- - **builder** - a path to Closure FX Builder installation directory. 
+**builder** - a path to Closure FX Builder installation directory. 
   - For example: /home/john/ClosureFXBuilder/
 
- - **closure** - a path to the Closure Build Configuration file (*.closure).
-  - For example: /home/john/myproject/build.closure
+**closure** - a path to the Closure Build Configuration file (*.closure).
+  - The path can be absolute or related to your project.
+  - For example: build/build.closure
 
- - **log** - a path to the log file to report the compiler's errors and warnings. 
+**log** - a path to the log file to report the compiler's errors and warnings. 
+  - The path can be absolute or related to your project.
   - If not specified, errors and warnings will be reported to the console. 
   - If specified and file does not exist, it will be created. Otherwise, the file will be overrided.
+  - For example: logs/error.log
 
 ### Links
  
