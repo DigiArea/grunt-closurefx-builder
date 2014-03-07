@@ -17,10 +17,6 @@ module.exports = function(grunt) {
       path = require('path'),
       gzip = require('zlib').gzip;
 
-  // ==========================================================================
-  // TASKS
-  // ==========================================================================
-
   grunt.registerMultiTask('closurefx-builder', 'Grunt plugin for Closure FX Builder', function() {
 
     var closure = '',
@@ -28,7 +24,6 @@ module.exports = function(grunt) {
         data = this.data,
         done = this.async();
 
-    // Check for closure path.
     if (data.builder) {
       builder = data.builder;
     } else if (process.env.CLOSURE_FX_BUILDER_PATH) {
@@ -37,8 +32,8 @@ module.exports = function(grunt) {
       grunt.log.error('' +
           '/!\\'.red +
           ' Set an environment variable called ' +
-          'CLOSURE_FX_BUILDER_PATH'.red + ' or the build parameter' + 'builder'.red +
-          ' and\nmake it point to your root install of Closure FX Builder.' +
+          'CLOSURE_FX_BUILDER_PATH'.red + ' or the option' + 'builder'.red +
+          ' that\nshould be pointed to your installation directory of Closure FX Builder.' +
           '\n');
       return false;
     }
@@ -47,30 +42,26 @@ module.exports = function(grunt) {
 
     data.cwd = data.cwd || './';
 
-   // Sanitize options passed.
+   // build file path is required
     if (!data.closure || !data.closure.length) {
-      // This task requires a minima an input file.
       grunt.warn('Missing closure property.');
       return false;
     }
 
-    //data.closure = grunt.file.expand({cwd: data.cwd}, data.closure);
+    //resolve build file path
     if (!grunt.file.isPathAbsolute(data.closure)) {
         data.closure = path.resolve("./") + "/" + data.closure;
     }
 
 if(data.log){
-
+//resolve log file path
     if (!grunt.file.isPathAbsolute(data.log)) {
         data.log = path.resolve("./") + "/" + data.log;
     }
 }
 
-    // Build command line.
+    // command
     command += ' -closure "' + data.closure + '"';
-
-    // because closure compiler does not create dirs.
-    //grunt.file.write(data.jsOutputFile, '');
 
     exec(command, function(err, stdout, stderr) {
       if (err) {
