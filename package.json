@@ -1,7 +1,7 @@
 {
   "name": "grunt-closurefx-builder",
   "description": "A Grunt task for Closure FX Builder.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "homepage": "https://github.com/DigiArea/grunt-closurefx-builder",
   "author": {
     "name": "DigiArea, Inc.",
