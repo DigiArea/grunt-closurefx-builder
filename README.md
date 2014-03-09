@@ -43,14 +43,14 @@ grunt.initConfig({
 
 ### Options
 
-**builder** - a path to Closure FX Builder installation directory. 
+```builder``` - a path to Closure FX Builder installation directory. 
   - For example: /home/john/ClosureFXBuilder/
 
-**closure** - a path to the Closure Build Configuration file (*.closure).
+```closure``` - a path to the Closure Build Configuration file (*.closure).
   - The path can be absolute or related to your project.
   - For example: build/build.closure
 
-**log** - a path to the log file to report the compiler's errors and warnings. 
+```log``` - a path to the log file to report the compiler's errors and warnings. 
   - The path can be absolute or related to your project.
   - If not specified, errors and warnings will be reported to the console. 
   - If specified and file does not exist, it will be created. Otherwise, the file will be overrided.
