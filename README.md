@@ -59,7 +59,7 @@ grunt.initConfig({
 ### Links
  
  - [Closure FX Builder GitHub project](https://github.com/DigiArea/closurefx-builder)
- - [Closure FX Builder Grunt Plugn NPM package](https://www.npmjs.org/package/grunt-closurefx-builder)
+ - [Closure FX Builder Grunt Plugin NPM package](https://www.npmjs.org/package/grunt-closurefx-builder)
 
 ### License
 
