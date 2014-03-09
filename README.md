@@ -50,7 +50,7 @@ grunt.initConfig({
   - The path can be absolute or related to your project.
   - For example: build/build.closure
 
-```log``` - a path to the log file to report the compiler's errors and warnings. 
+```log``` - (optional) a path to the log file to report the compiler's errors and warnings. 
   - The path can be absolute or related to your project.
   - If not specified, errors and warnings will be reported to the console. 
   - If specified and file does not exist, it will be created. Otherwise, the file will be overrided.
@@ -58,8 +58,8 @@ grunt.initConfig({
 
 ### Links
  
- - [Closure FX Builder project](https://github.com/DigiArea/closurefx-builder)
- - [Closure FX Builder grunt plugin package](https://www.npmjs.org/package/grunt-closurefx-builder)
+ - [Closure FX Builder GitHub project](https://github.com/DigiArea/closurefx-builder)
+ - [Closure FX Builder Grunt Plugn NPM package](https://www.npmjs.org/package/grunt-closurefx-builder)
 
 ### License
 
